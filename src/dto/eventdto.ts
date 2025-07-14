@@ -17,6 +17,16 @@ export type eventResponse  = {
     
 }[]
 
+export type eventResponseSinlge  = {
+    id: string
+    title: string
+    description: string
+    date : Date
+    createdAt : Date
+    updatedAt : Date
+    
+}
+
 
 export type Attendee = {
     name : string
