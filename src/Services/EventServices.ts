@@ -18,7 +18,7 @@ class EventService {
   }
 
   async getAllEvents() {
-    return await prisma.event.findMany({
+    return await prisma.event.findMany({ skip : 0, take: 3,
       include: { EventAddentee: true },
     });
   }

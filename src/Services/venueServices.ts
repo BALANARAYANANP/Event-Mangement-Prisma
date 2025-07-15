@@ -17,7 +17,7 @@ class VenueService {
 
 
   async getAllVenues() {
-    return await prisma.venue.findMany({include : {Event : true}});
+    return await prisma.venue.findMany({ skip : 0, take :2 ,include : {Event : true}});
   }
 
 

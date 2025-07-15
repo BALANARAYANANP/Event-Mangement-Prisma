@@ -8,7 +8,7 @@ import jwt from 'jsonwebtoken';
 import { Role } from '../../generated/prisma';
 
 class MemberService {
-  // Create a new member
+  
   async createMember(data: Member) {
     const hashedPassword = CRYPTOJS.SHA256(data.password).toString();
     return await prisma.member.create({
@@ -21,12 +21,12 @@ class MemberService {
     });
   }
 
-  // Get all members
+
   async getAllMembers() {
-    return await prisma.member.findMany();
+    return await prisma.member.findMany({skip: 0, take: 2});
   }
 
-  // Update a member
+  
   async updateMember(id: string, data: Member) {
     const hashedPassword = CRYPTOJS.SHA256(data.password).toString();
     return await prisma.member.update({
@@ -39,7 +39,7 @@ class MemberService {
     });
   }
 
-  // Delete a member
+ 
   async deleteMember(id: string) {
     return await prisma.member.delete({
       where: { id },

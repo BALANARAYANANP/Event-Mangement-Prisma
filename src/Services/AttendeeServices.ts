@@ -17,7 +17,7 @@ class AttendeeService {
 
 
   async getAllAttendees() {
-    return await prisma.attendee.findMany({
+    return await prisma.attendee.findMany({ skip : 0 , take : 2 ,
       include: { EventAddentee: true },
     });
   }
